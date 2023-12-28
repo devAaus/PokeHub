@@ -19,22 +19,23 @@ const Pokemon = ({ params }) => {
       const name = params.pokemonName
 
 
-      const getPokemon = async () => {
-            try {
-                  const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
-                  setPokemon(resp.data);
-                  console.log(resp.data);
-                  setTimeout(() => {
-                        setIsLoading(false);
-                  }, 2000);
-            } catch (error) {
-                  console.error('Error fetching Pokemon:', error);
-            }
-      }
-
       useEffect(() => {
+            const getPokemon = async () => {
+                  try {
+                        const resp = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+                        setPokemon(resp.data);
+                        console.log(resp.data);
+                        setTimeout(() => {
+                              setIsLoading(false);
+                        }, 2000);
+                  } catch (error) {
+                        console.error('Error fetching Pokemon:', error);
+
+                  }
+            };
+
             getPokemon();
-      }, [name])
+      }, [name, getPokemon]);
 
 
       const formattedId = String(pokemon.id).padStart(3, '0');

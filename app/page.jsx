@@ -19,16 +19,19 @@ const Home = () => {
   const [sortOption, setSortOption] = useState('numerical');
 
 
-  const getPokemon = async () => {
-    try {
+  useEffect(() => {
+    const getPokemon = async () => {
+      try {
+        const resp = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=571&offset=0/');
+        await getPokemonData(resp.data.results);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching Pokemon:', error);
+      }
+    };
 
-      const resp = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=571&offset=0/');
-      await getPokemonData(resp.data.results);
-      setIsLoading(false)
-    } catch (error) {
-      console.error('Error fetching Pokemon:', error);
-    }
-  };
+    getPokemon();
+  }, []);
 
 
   const getPokemonData = async (results) => {
@@ -46,9 +49,7 @@ const Home = () => {
   };
 
 
-  useEffect(() => {
-    getPokemon();
-  }, []);
+
 
 
   useEffect(() => {
