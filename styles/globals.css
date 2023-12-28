@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+*::selection {
+  @apply bg-emerald-100 dark:bg-purple-400/70;
+}
+
+::-webkit-scrollbar {
+  /* height: 10px; */
+  /* border-radius: 1px solid #d5d5d5; */
+  @apply h-2 w-[8px] rounded-xl;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-rose-200/20 w-20;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-[#f9d00e] rounded-[4px];
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#f9d00e];
+}
