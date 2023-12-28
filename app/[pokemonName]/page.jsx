@@ -35,7 +35,7 @@ const Pokemon = ({ params }) => {
             };
 
             getPokemon();
-      }, [name, getPokemon]);
+      }, [name]);
 
 
       const formattedId = String(pokemon.id).padStart(3, '0');
