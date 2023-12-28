@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { typeColors } from '@utilities/Colors';
-import PopOver from './PopOver';
 
 const MoveCard = ({ move }) => {
       const [moveDetails, setMoveDetails] = useState(null);
